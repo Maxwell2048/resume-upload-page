@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Your Resume</title>
+  <meta name="description" content="Final onboarding step: upload a resume for parsing and optimisation, or skip.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <!-- Left: intro copy + illustration -->
+    <section class="intro" aria-labelledby="intro-title">
+      <h1 id="intro-title" class="intro__title">Finish!<br>Upload Your Resume</h1>
+      <p class="intro__lead">Upload your resume, the platform will help you parse and optimize, you can also skip this step</p>
+      <img class="intro__art" src="assets/illustration.png" width="648" height="561"
+           alt="" role="presentation" decoding="async">
+    </section>
+
+    <!-- Right: upload card -->
+    <section class="card" aria-labelledby="upload-title">
+      <h2 id="upload-title" class="card__title">Upload file</h2>
+
+      <form class="upload-form" id="upload-form" novalidate>
+        <div class="dropzone" id="dropzone" data-max-mb="10" data-accept=".pdf,.doc,.docx">
+          <input class="dropzone__input" id="resume-input" name="resume" type="file"
+                 accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+          <!-- The label makes the whole area open the native file picker (click, Enter or Space). -->
+          <label class="dropzone__target" for="resume-input">
+            <svg class="dropzone__icon" viewBox="0 0 56 36" aria-hidden="true" focusable="false">
+              <!-- closed cloud outline -->
+              <path d="M14.5 33.5h28a9.6 9.6 0 0 0 1.4-19.1A14.2 14.2 0 0 0 17 11.2a11.2 11.2 0 0 0-2.5 22.3Z"
+                    fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+              <!-- solid upload arrow -->
+              <path d="M28 12.6 35.4 20.4h-4.3v6.4h-6.2v-6.4h-4.3Z" fill="currentColor" stroke="currentColor"
+                    stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+            <span class="dropzone__hint">Drag your resume file to this area, or click on the area to select the appropriate file to upload</span>
+          </label>
+
+          <!-- Shown after a file is chosen -->
+          <div class="dropzone__file" id="dropzone-file" hidden>
+            <svg class="dropzone__file-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 2.75h8.2L19.25 7.8V20a1.25 1.25 0 0 1-1.25 1.25H6A1.25 1.25 0 0 1 4.75 20V4A1.25 1.25 0 0 1 6 2.75Z"
+                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M14 2.9V8h5.1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <span class="dropzone__file-name" id="dropzone-file-name"></span>
+            <span class="dropzone__file-size" id="dropzone-file-size"></span>
+            <button type="button" class="dropzone__remove" id="dropzone-remove" aria-label="Remove selected file">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <p class="dropzone__error" id="dropzone-error" role="alert"></p>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn btn--secondary" id="btn-back">Last step</button>
+          <button type="submit" class="btn btn--primary" id="btn-finish">Finish</button>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <nav class="steps" aria-label="Onboarding progress">
+        <ol class="steps__list">
+          <li class="steps__item steps__item--done"><span class="steps__dot"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.3 6.8 11 12 5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="visually-hidden">Step 1, completed</span></li>
+          <li class="steps__item steps__item--done"><span class="steps__dot"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 8.3 6.8 11 12 5.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="visually-hidden">Step 2, completed</span></li>
+          <li class="steps__item steps__item--current" aria-current="step"><span class="steps__dot" aria-hidden="true">3</span><span class="visually-hidden">Step 3 of 3, upload resume (current)</span></li>
+        </ol>
+      </nav>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
